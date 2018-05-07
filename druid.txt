@@ -1,0 +1,40 @@
+MACRO 16777240 "Bash" Ability_Ambush
+/run c,t=CastSpellByName,"target"if nil then CastSpellByName("Bash")end;_,_,a=GetShapeshiftFormInfo(1)RunMacro("aa")if not a then CastShapeshiftForm(1)end;if CheckInteractDistance(t,3)and(not PlayerFrame.inCombat)then c"Bash";else c"Feral Charge"end
+END
+MACRO 16777219 "Canx" Ability_Ambush
+/run if buffed("Prowl",'player')then CastSpellByName("Prowl")else for i=1,GetNumShapeshiftForms() do _,name,active=GetShapeshiftFormInfo(i) if active~=nil then CastShapeshiftForm(i)break end;end;end
+END
+MACRO 16777242 "Claw(2)" Ability_Ambush
+/run RunMacro("aa") CastSpellByName("Claw")
+END
+MACRO 16777241 "Dash" Ability_Ambush
+/run c=CastSpellByName;if nil then c("Dash")end;_,_,a=GetShapeshiftFormInfo(3)if not a then CastShapeshiftForm(3)else c"Dash"end
+END
+MACRO 16777239 "Faerie Fire" Ability_Ambush
+/run i,m,c,u=1,0,CastSpellByName,UnitBuff if nil then c("Faerie Fire")end;while(u("player",i)~=nil)do if(strfind(u("player",i),"Form")~=nil)then m=1 end;i=i+1 end if m==1 then c("Faerie Fire (Feral)")else c("Faerie Fire")end
+END
+MACRO 16777222 "Growl" Ability_Ambush
+/run c=CastSpellByName;if nil then c("Growl")end _,_,a=GetShapeshiftFormInfo(1)RunMacro("aa")if not a then CastShapeshiftForm(1)else c"Growl"end 
+END
+MACRO 16777221 "Maul(3)" Ability_Ambush
+/run RunMacro("aa") CastSpellByName("Maul")
+END
+MACRO 16777235 "Nature's Grasp" Ability_Ambush
+END
+MACRO 16777228 "Prowl" Ability_Ambush
+/run if nil then CastSpellByName("Prowl")end;ClearTarget();TargetNearestEnemy();c,t=CastSpellByName,"target" _,_,a=GetShapeshiftFormInfo(3)if not a then CastShapeshiftForm(3)end;if a and buffed("Prowl",'player')then c"Pounce";else c"Prowl"end
+END
+MACRO 16777218 "Rejuvenation(4)" Ability_Ambush
+/run r="Rejuvenation" if nil then CastSpellByName("Rejuvenation") end if UnitExists("target") and UnitIsFriend("target","player") then if not buffed(r,'target') then CastSpellByName(r) end return end if not buffed(r, 'player') then cast(r,1) end
+END
+MACRO 16777227 "Shred(1)" Ability_Ambush
+/run c,t=CastSpellByName,"target" if nil then c("Shred")end; _,_,a=GetShapeshiftFormInfo(3)if not a then CastShapeshiftForm(3)end;if a and buffed("Prowl",'player')then ClearTarget();TargetNearestEnemy();c"Shred";else RunMacro("aa");c"Shred"end
+END
+MACRO 16777224 "Travel Form" Ability_Ambush
+/script if not buffed("Travel Form", 'player') then cast("Travel Form(Shapeshift)")end;
+/script if not buffed("Aquatic Form", 'player') then cast("Aquatic Form(Shapeshift)")end;
+/script UIErrorsFrame:Clear()
+END
+MACRO 16777217 "Wrath(4)" Ability_Ambush
+/run RunMacro("aa") CastSpellByName("Wrath")
+END
