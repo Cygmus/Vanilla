@@ -14,7 +14,7 @@ Faerie Fire in all forms
 /run i,m,c,u=1,0,CastSpellByName,UnitBuff if nil then c("Faerie Fire")end;while(u("player",i)~=nil)do if(strfind(u("player",i),"Form")~=nil)then m=1 end;i=i+1 end if m==1 then c("Faerie Fire (Feral)")else c("Faerie Fire")end
 
 Bear Form then Growl
-/run c=CastSpellByName;if nil then c("Growl")end _,_,a=GetShapeshiftFormInfo(1)RunMacro("aa")if not a then CastShapeshiftForm(1)else c"Growl"end 
+/run c=CastSpellByName;if nil then c("Growl")end _,_,a=GetShapeshiftFormInfo(1)RunMacro("aa")if not a then CastShapeshiftForm(1)else c"Growl"end
 
 Maul
 /run RunMacro("aa") CastSpellByName("Maul")
