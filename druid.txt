@@ -1,5 +1,5 @@
 MACRO 16777240 "Bash" Ability_Ambush
-/run c,t=CastSpellByName,"target"if nil then CastSpellByName("Bash")end;_,_,a=GetShapeshiftFormInfo(1)RunMacro("aa")if not a then CastShapeshiftForm(1)end;if CheckInteractDistance(t,3)and(not PlayerFrame.inCombat)then c"Bash";else c"Feral Charge"end
+/run c,t=CastSpellByName,"target"if nil then CastSpellByName("Bash")end;_,_,a=GetShapeshiftFormInfo(1)RunMacro("aa")if not a then CastShapeshiftForm(1)end;if CheckInteractDistance(t,3)and(not PlayerFrame.inCombat)then c"Bash"else c"Feral Charge"end
 END
 MACRO 16777219 "Canx" Ability_Ambush
 /run if buffed("Prowl",'player')then CastSpellByName("Prowl")else for i=1,GetNumShapeshiftForms() do _,name,active=GetShapeshiftFormInfo(i) if active~=nil then CastShapeshiftForm(i)break end;end;end
