@@ -3,15 +3,16 @@
  <summary>Bear Form then Feral Charge or Bash</summary>
  
 `
-/run c,t=CastSpellByName,"target"if nil then CastSpellByName("Bash")end;_,_,a=GetShapeshiftFormInfo(1)RunMacro("aa")if not a then CastShapeshiftForm(1)end;if CheckInteractDistance(t,3)and(not PlayerFrame.inCombat)then c"Bash"else c"Feral Charge"end'
+/run c,t=CastSpellByName,"target"if nil then CastSpellByName("Bash")end;_,_,a=GetShapeshiftFormInfo(1)RunMacro("aa")if not a then CastShapeshiftForm(1)end;if CheckInteractDistance(t,3)and(not PlayerFrame.inCombat)then c"Bash"else c"Feral Charge"end
+`
 </details>
 &nbsp;
 <details>
  <summary>Cancel Form</summary>
  
-````js
+`
 /run if buffed("Prowl",'player')then CastSpellByName("Prowl")else for i=1,GetNumShapeshiftForms() do _,_,a=GetShapeshiftFormInfo(i) if a~=nil then CastShapeshiftForm(i)break end;end;end
-````
+`
 </details>
 &nbsp;
 <details>
