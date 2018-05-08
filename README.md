@@ -6,7 +6,7 @@
 /run c,t=CastSpellByName,"target"if nil then CastSpellByName("Bash")end;_,_,a=GetShapeshiftFormInfo(1)RunMacro("aa")if not a then CastShapeshiftForm(1)end;if CheckInteractDistance(t,3)and(not PlayerFrame.inCombat)then c"Bash"else c"Feral Charge"end
 ````
 </details>
-&npsp;
+&nbsp;
 <details>
  <summary>Cancel Form</summary>
  
