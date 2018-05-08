@@ -92,8 +92,7 @@
 </details>
 &nbsp;
 <details>
- <summary>
-Wrath then Auto Attack</summary>
+ <summary>Wrath then Auto Attack</summary>
  
 ````js
 `/run RunMacro("aa") CastSpellByName("Wrath")`
