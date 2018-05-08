@@ -1,0 +1,50 @@
+MACRO 16777238 "AotC" Ability_Ambush
+/run local i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Mount_JungleTiger" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Cheetah")else end
+END
+MACRO 16777218 "AotH" Ability_Ambush
+/run local i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Spell_Nature_RavenForm" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Hawk") else end
+END
+MACRO 16777237 "AotM" Ability_Ambush
+/cast Deterrence
+/run local i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Hunter_AspectOfTheMonkey" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Monkey")else end
+END
+MACRO 16777217 "Conc_Wing Clip" Ability_Ambush
+/run c=CastSpellByName if nil then c("Concussive Shot")end;RunMacro("as");if CheckInteractDistance("target",3)then c("Wing Clip");c("Wing Clip(Rank 1)")else c("Concussive Shot")end
+END
+MACRO 16777232 "explosive trap" Ability_Ambush
+END
+MACRO 16777230 "Feign" Ability_Ambush
+/run if UnitAffectingCombat("player")then CastSpellByName("Feign Death")end
+END
+MACRO 16777239 "Freezing Trap" Ability_Ambush
+/run PetPassiveMode();PetFollow()
+/run if UnitAffectingCombat("player")then CastSpellByName("Feign Death")elseif not UnitAffectingCombat("player") then CastSpellByName("Freezing Trap")end
+END
+MACRO 16777229 "frost trap" Ability_Ambush
+END
+MACRO 16777234 "Intimidate" Ability_Ambush
+END
+MACRO 16777236 "Pack" Ability_Ambush
+END
+MACRO 16777219 "pCall" Ability_Ambush
+/run c,u,s=CastSpellByName,UnitExists,{"Revive Pet","Call Pet","Dismiss Pet"} if nil then c("Revive Pet")end;if q==nil then q=1 end q=q+1 if u("pet")then if UnitHealth("pet")==0 then c(s[1])else c(s[3])end elseif q>=3 then q=1 c(s[q])else c(s[q])end
+END
+MACRO 16777220 "pFeed" Ability_Ambush
+/run c,g=CastSpellByName,GetPetHappiness if nil then UseContainerItem(0,1)end;if not UnitExists("pet")then c("Revive Pet")elseif g()~=nil and g()~=3 then c("Feed Pet")PickupContainerItem(0,1)end
+END
+MACRO 16777222 "pGrowl" Ability_Ambush
+/run c=CastSpellByName if nil then c("Growl")end;if GetUnitName("target")==nil then TargetNearestEnemy()end;CastSpellByName("Growl");PetAttack();PetDefensiveMode();c("Growl")
+END
+MACRO 16777228 "rapid fire" Ability_Ambush
+END
+MACRO 16777224 "Raptor Strike(1)" Ability_Ambush
+/run RunMacro("aa")
+/cast Raptor Strike
+/cast Counterattack
+/cast Mongoose Bite
+END
+MACRO 16777240 "Viper_Scorpid" Ability_Ambush
+/run if UnitPowerType('target')>0 then CastSpellByName("Scorpid Sting")else CastSpellByName("Viper Sting")end
+END
+MACRO 16777233 "volly" Ability_Ambush
+END
