@@ -85,9 +85,9 @@
  <summary>Travel Form</summary>
  
 ````js
-`/script if not buffed("Travel Form", 'player') then cast("Travel Form(Shapeshift)")end;
+/script if not buffed("Travel Form", 'player') then cast("Travel Form(Shapeshift)")end;
 /script if not buffed("Aquatic Form", 'player') then cast("Aquatic Form(Shapeshift)")end;
-/script UIErrorsFrame:Clear()`
+/script UIErrorsFrame:Clear()
 ````
 </details>
 &nbsp;
@@ -95,6 +95,6 @@
  <summary>Wrath then Auto Attack</summary>
  
 ````js
-`/run RunMacro("aa") CastSpellByName("Wrath")`
+/run RunMacro("aa") CastSpellByName("Wrath")
 ````
 </details>
