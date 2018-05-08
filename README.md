@@ -98,4 +98,5 @@
 /run RunMacro("aa") CastSpellByName("Wrath")
 ````
 </details>
+
 # Hunter
