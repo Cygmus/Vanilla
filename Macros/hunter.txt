@@ -5,27 +5,27 @@ Aspect of the Hawk
 /run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Spell_Nature_RavenForm" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Hawk") else end
 
 Aspect of the Monkey, Deterrence
-/cast Deterrence
+/run CastSpellByName("Deterrence")
 /run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Hunter_AspectOfTheMonkey" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Monkey")else end
 
 Concussive Shot, Wing Clip
-/run c=CastSpellByName if nil then c("Concussive Shot")end;RunMacro("as");if CheckInteractDistance("target",3)then c("Wing Clip");c("Wing Clip(Rank 1)")else c("Concussive Shot")end
+/run c=CastSpellByName if nil then c("Concussive Shot")end;RunMacro("as");if CheckInteractDistance("target",3) then c("Wing Clip") c("Wing Clip(Rank 1)") else c("Concussive Shot") end
 
 Feign Death
-/run if UnitAffectingCombat("player")then CastSpellByName("Feign Death")end
+/run if UnitAffectingCombat("player") then CastSpellByName("Feign Death") end
 
 Freezing Trap, Feign Death
 /run PetPassiveMode();PetFollow()
-/run if UnitAffectingCombat("player")then CastSpellByName("Feign Death")elseif not UnitAffectingCombat("player") then CastSpellByName("Freezing Trap")end
+/run if UnitAffectingCombat("player") then CastSpellByName("Feign Death") elseif not UnitAffectingCombat("player") then CastSpellByName("Freezing Trap") end
 
 Revive Pet, Call Pet, Dismiss Pet
-/run c,u,s=CastSpellByName,UnitExists,{"Revive Pet","Call Pet","Dismiss Pet"} if nil then c("Revive Pet")end;if q==nil then q=1 end q=q+1 if u("pet")then if UnitHealth("pet")==0 then c(s[1])else c(s[3])end elseif q>=3 then q=1 c(s[q])else c(s[q])end
+/run c,u,s=CastSpellByName,UnitExists,{"Revive Pet","Call Pet","Dismiss Pet"} if nil then c("Revive Pet") end if q==nil then q=1 end q=q+1 if u("pet") then if UnitHealth("pet")==0 then c(s[1]) else c(s[3]) end elseif q>=3 then q=1 c(s[q]) else c(s[q]) end
 
 Feed Pet
-/run c,g=CastSpellByName,GetPetHappiness if nil then UseContainerItem(0,1)end;if not UnitExists("pet")then c("Revive Pet")elseif g()~=nil and g()~=3 then c("Feed Pet")PickupContainerItem(0,1)end
+/run c,g=CastSpellByName,GetPetHappiness if nil then UseContainerItem(0,1) end if not UnitExists("pet") then c("Revive Pet") elseif g()~=nil and g()~=3 then c("Feed Pet") PickupContainerItem(0,1) end
 
 Growl
-/run c=CastSpellByName if nil then c("Growl")end;if GetUnitName("target")==nil then TargetNearestEnemy()end;CastSpellByName("Growl");PetAttack();PetDefensiveMode();c("Growl")
+/run c=CastSpellByName if nil then c("Growl") end if GetUnitName("target")==nil then TargetNearestEnemy() end c("Growl");PetAttack();PetDefensiveMode();c("Growl")
 
 Raptor Strike, Counterattack, Mongoose Bite, Auto Attack
 /run RunMacro("aa")
@@ -34,5 +34,5 @@ Raptor Strike, Counterattack, Mongoose Bite, Auto Attack
 /cast Mongoose Bite
 
 Scorpid Sting, Viper Sting
-/run if UnitPowerType('target')>0 then CastSpellByName("Scorpid Sting")else CastSpellByName("Viper Sting")end
+/run if UnitPowerType('target')>0 then CastSpellByName("Scorpid Sting") else CastSpellByName("Viper Sting") end
 
