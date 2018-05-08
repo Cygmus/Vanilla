@@ -1,15 +1,20 @@
 
 <details>
  <summary>Bear Form then Feral Charge or Bash</summary>
-
-`js
+ 
+````js
 /run c,t=CastSpellByName,"target"if nil then CastSpellByName("Bash")end;_,_,a=GetShapeshiftFormInfo(1)RunMacro("aa")if not a then CastShapeshiftForm(1)end;if CheckInteractDistance(t,3)and(not PlayerFrame.inCombat)then c"Bash"else c"Feral Charge"end
-`
+````
 </details>
 
-Cancel Form
+<details>
+ <summary>Cancel Form</summary>
+ 
+````js
+/run if buffed("Prowl",'player')then CastSpellByName("Prowl")else for i=1,GetNumShapeshiftForms() do _,_,a=GetShapeshiftFormInfo(i) if a~=nil then CastShapeshiftForm(i)break end;end;end
+````
+</details>
 
-`/run if buffed("Prowl",'player')then CastSpellByName("Prowl")else for i=1,GetNumShapeshiftForms() do _,_,a=GetShapeshiftFormInfo(i) if a~=nil then CastShapeshiftForm(i)break end;end;end`
 
 Claw and Auto Attack
 
