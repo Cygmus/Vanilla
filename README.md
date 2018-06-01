@@ -1,4 +1,10 @@
+# General
+
+
 # Druid
+
+<details>
+
 <details>
  <summary>Bear Form then Feral Charge or Bash</summary>
  
@@ -99,4 +105,43 @@
 ````
 </details>
 
+</details>
+
 # Hunter
+
+<details>
+<summary>Aspect of the Cheetah</summary>
+
+````js
+/run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Mount_JungleTiger" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Cheetah") else end
+````
+</details>
+&nbsp;
+
+<details>
+<summary>Aspect of the Hawk</summary>
+
+````js
+/run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Spell_Nature_RavenForm" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Hawk") else end
+````
+</details>
+&nbsp;
+
+<details>
+<summary>Aspect of the Monkey, Deterrence</summary>
+
+````js
+/run CastSpellByName("Deterrence")
+/run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Hunter_AspectOfTheMonkey" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Monkey")else end
+````
+</details>
+&nbsp;
+
+<details>
+<summary>Concussive Shot, Wing Clip</summary>
+
+````js
+/run c=CastSpellByName if nil then c"Concussive Shot" end RunMacro("as") if CheckInteractDistance("target",3) then c"Wing Clip" c"Wing Clip(Rank 1)" else c"Concussive Shot" end
+````
+</details>
+&nbsp;
