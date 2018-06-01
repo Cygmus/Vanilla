@@ -4,7 +4,8 @@
 # Druid
 
 <details>
-
+<summary>Macros</summary>
+ 
 <details>
  <summary>Bear Form then Feral Charge or Bash</summary>
  
@@ -141,7 +142,70 @@
 <summary>Concussive Shot, Wing Clip</summary>
 
 ````js
-/run c=CastSpellByName if nil then c"Concussive Shot" end RunMacro("as") if CheckInteractDistance("target",3) then c"Wing Clip" c"Wing Clip(Rank 1)" else c"Concussive Shot" end
+/run c=CastSpellByName if nil then c("Concussive Shot") end RunMacro("as") if CheckInteractDistance("target",3) then c"Wing Clip" c"Wing Clip(Rank 1)" else c"Concussive Shot" end
+````
+</details>
+&nbsp;
+
+<details>
+<summary>Feign Death</summary>
+
+````js
+/run if UnitAffectingCombat("player") then CastSpellByName("Feign Death") end
+````
+</details>
+&nbsp;
+
+<details>
+<summary>Freezing Trap, Feign Death</summary>
+
+````js
+/run PetPassiveMode() PetFollow()
+/run if nil then CastSpellByName("Freezing Trap") end if UnitAffectingCombat("player") then CastSpellByName("Feign Death") else CastSpellByName("Freezing Trap") end
+````
+</details>
+&nbsp;
+
+<details>
+<summary>Revive Pet, Dismiss Pet</summary>
+
+````js
+/run c,u=CastSpellByName if nil then c("Revive Pet") end if UnitExists("pet") then if UnitHealth("pet")==0 then c"Revive Pet" else c"Dismiss Pet" end else c"Revive Pet" end
+````
+</details>
+&nbsp;
+
+<details>
+<summary>Feed Pet, Call Pet</summary>
+
+````js
+/run c,g=CastSpellByName,GetPetHappiness RunMacro("cf") if nil then UseContainerItem(0,1) end if not UnitExists("pet") then c"Call Pet" elseif g()~=nil and g()~=3 then if x==0 then c"Feed Pet" PickupContainerItem(0,1) end UseContainerItem(0,0) end
+````
+</details>
+&nbsp;
+
+<details>
+<summary>Feed Pet Check</summary>
+
+````js
+/run i,x=1,0 while UnitBuff("pet",i) do if UnitBuff("pet",i)=="Interface\\Icons\\Ability_Hunter_BeastTraining" then x=1 end i=i+1 end
+````
+</details>
+&nbsp;
+<details>
+<summary>Mend Pet, Call Pet</summary>
+
+````js
+/run c=CastSpellByName if nil then c("Mend Pet") end RunMacro("cm") if not UnitExists("pet") then c"Call Pet" elseif x==0 then c"Mend Pet" end
+````
+</details>
+&nbsp;
+
+<details>
+<summary>Growl</summary>
+
+````js
+/run c=CastSpellByName if nil then c("Growl") end if GetUnitName("target")==nil then TargetNearestEnemy() end c("Growl") PetAttack() PetDefensiveMode() c("Growl")
 ````
 </details>
 &nbsp;
