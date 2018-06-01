@@ -114,7 +114,7 @@
 <summary>Aspect of the Cheetah</summary>
 
 ````js
-/run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Mount_JungleTiger" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Cheetah") else end
+/run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Mount_JungleTiger" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Cheetah") end
 ````
 </details>
 &nbsp;
@@ -123,7 +123,7 @@
 <summary>Aspect of the Hawk</summary>
 
 ````js
-/run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Spell_Nature_RavenForm" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Hawk") else end
+/run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Spell_Nature_RavenForm" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Hawk") end
 ````
 </details>
 &nbsp;
@@ -133,7 +133,7 @@
 
 ````js
 /run CastSpellByName("Deterrence")
-/run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Hunter_AspectOfTheMonkey" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Monkey")else end
+/run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Hunter_AspectOfTheMonkey" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Monkey") end
 ````
 </details>
 &nbsp;
@@ -179,7 +179,7 @@
 <summary>Feed Pet, Call Pet</summary>
 
 ````js
-/run c,g=CastSpellByName,GetPetHappiness RunMacro("cf") if nil then UseContainerItem(0,1) end if not UnitExists("pet") then c"Call Pet" elseif g()~=nil and g()~=3 then if x==0 then c"Feed Pet" PickupContainerItem(0,1) end UseContainerItem(0,0) end
+/run c,g=CastSpellByName,GetPetHappiness RunMacro("cf") if nil then UseContainerItem(0,1) end if not UnitExists("pet") then c"Call Pet" elseif g()~=nil and g()~=3 and x==0 then c"Feed Pet" PickupContainerItem(0,1) end UseContainerItem(0,0)
 ````
 </details>
 &nbsp;
@@ -206,6 +206,28 @@
 
 ````js
 /run c=CastSpellByName if nil then c("Growl") end if GetUnitName("target")==nil then TargetNearestEnemy() end c("Growl") PetAttack() PetDefensiveMode() c("Growl")
+````
+</details>
+&nbsp;
+
+<details>
+<summary>Raptor Strike, Counterattack, Mongoose Bite, Auto Attack</summary>
+
+````js
+/run RunMacro("aa")
+/cast Raptor Strike
+/cast Counterattack
+/cast Mongoose Bite
+````
+</details>
+&nbsp;
+
+<details>
+<summary>Scorpid Sting, Viper Sting</summary>
+
+````js
+/run c,u=CastSpellByName,UnitClass("target") if nil then c("Viper Sting") end if u=="Rogue" or u=="Warrior" then c"Scorpid Sting" else c"Viper Sting" end
+
 ````
 </details>
 &nbsp;
