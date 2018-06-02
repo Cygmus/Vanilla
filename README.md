@@ -1,5 +1,26 @@
 # General
+<summary>Auto Attack</summary>
 
+````js
+/run if GetUnitName("target")==nil then TargetNearestEnemy() end for z=1,112 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z) end end end
+````
+<summary>&nbsp;Auto Shot</summary>
+ 
+````js
+/run if GetUnitName("target")==nil then TargetNearestEnemy() end if CheckInteractDistance("target",3) and not PlayerFrame.inCombat then RunMacro("aa") elseif not IsAutoRepeatAction(1) then CastSpellByName("Auto Shot") endw
+
+````
+<summary>Bandage Self</summary>
+ 
+````js
+/run UseContainerItem(0,3) SpellTargetUnit("player")
+
+````
+<summary>Bandage Unit e.g. Pet</summary>
+ 
+````js
+/run TargetUnit("pet") UseContainerItem(0,3) TargetLastTarget()
+````
 
 # Druid
 
@@ -110,107 +131,74 @@
 
 # Hunter
 
-<details>
 <summary>Aspect of the Cheetah</summary>
 
 ````js
 /run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Mount_JungleTiger" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Cheetah") end
 ````
-</details>
-&nbsp;
 
-<details>
 <summary>Aspect of the Hawk</summary>
 
 ````js
 /run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Spell_Nature_RavenForm" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Hawk") end
 ````
-</details>
-&nbsp;
 
-<details>
 <summary>Aspect of the Monkey, Deterrence</summary>
 
 ````js
 /run CastSpellByName("Deterrence")
 /run i,x=1,0 while UnitBuff("player",i) do if UnitBuff("player",i)=="Interface\\Icons\\Ability_Hunter_AspectOfTheMonkey" then x=1 end i=i+1 end if x==0 then CastSpellByName("Aspect of the Monkey") end
 ````
-</details>
-&nbsp;
 
-<details>
 <summary>Concussive Shot, Wing Clip</summary>
 
 ````js
 /run c=CastSpellByName if nil then c("Concussive Shot") end RunMacro("as") if CheckInteractDistance("target",3) then c"Wing Clip" c"Wing Clip(Rank 1)" else c"Concussive Shot" end
 ````
-</details>
-&nbsp;
 
-<details>
 <summary>Feign Death</summary>
 
 ````js
 /run if UnitAffectingCombat("player") then CastSpellByName("Feign Death") end
 ````
-</details>
-&nbsp;
 
-<details>
 <summary>Freezing Trap, Feign Death</summary>
 
 ````js
 /run PetPassiveMode() PetFollow()
 /run if nil then CastSpellByName("Freezing Trap") end if UnitAffectingCombat("player") then CastSpellByName("Feign Death") else CastSpellByName("Freezing Trap") end
 ````
-</details>
-&nbsp;
 
-<details>
 <summary>Revive Pet, Dismiss Pet</summary>
 
 ````js
 /run c,u=CastSpellByName if nil then c("Revive Pet") end if UnitExists("pet") then if UnitHealth("pet")==0 then c"Revive Pet" else c"Dismiss Pet" end else c"Revive Pet" end
 ````
-</details>
-&nbsp;
 
-<details>
 <summary>Feed Pet, Call Pet</summary>
 
 ````js
 /run c,g=CastSpellByName,GetPetHappiness RunMacro("cf") if nil then UseContainerItem(0,1) end if not UnitExists("pet") then c"Call Pet" elseif g()~=nil and g()~=3 and x==0 then c"Feed Pet" PickupContainerItem(0,1) end UseContainerItem(0,0)
 ````
-</details>
-&nbsp;
 
-<details>
 <summary>Feed Pet Check</summary>
 
 ````js
 /run i,x=1,0 while UnitBuff("pet",i) do if UnitBuff("pet",i)=="Interface\\Icons\\Ability_Hunter_BeastTraining" then x=1 end i=i+1 end
 ````
-</details>
-&nbsp;
-<details>
+
 <summary>Mend Pet, Call Pet</summary>
 
 ````js
 /run c=CastSpellByName if nil then c("Mend Pet") end RunMacro("cm") if not UnitExists("pet") then c"Call Pet" elseif x==0 then c"Mend Pet" end
 ````
-</details>
-&nbsp;
 
-<details>
 <summary>Growl</summary>
 
 ````js
 /run c=CastSpellByName if nil then c("Growl") end if GetUnitName("target")==nil then TargetNearestEnemy() end c("Growl") PetAttack() PetDefensiveMode() c("Growl")
 ````
-</details>
-&nbsp;
 
-<details>
 <summary>Raptor Strike, Counterattack, Mongoose Bite, Auto Attack</summary>
 
 ````js
@@ -219,15 +207,23 @@
 /cast Counterattack
 /cast Mongoose Bite
 ````
-</details>
-&nbsp;
 
-<details>
 <summary>Scorpid Sting, Viper Sting</summary>
 
 ````js
 /run c,u=CastSpellByName,UnitClass("target") if nil then c("Viper Sting") end if u=="Rogue" or u=="Warrior" then c"Scorpid Sting" else c"Viper Sting" end
 
 ````
-</details>
-&nbsp;
+
+<summary>Pet Follow</summary>
+ 
+````js
+/run PetFollow() PetPassiveMode()
+````
+
+<summary>Pet Stay</summary>
+ 
+````js
+/run CastPetAction(3) PetPassiveMode()
+
+````
