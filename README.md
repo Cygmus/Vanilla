@@ -148,7 +148,7 @@
 <summary>Mend Pet, Call Pet</summary>
 
 ````js
-/run c=CastSpellByName if nil then c("Mend Pet") end RunMacro("cm") if not UnitExists("pet") then c"Call Pet" elseif x==0 then c"Mend Pet" end
+/run i,x,c=1,0,CastSpellByName if nil then c("Mend Pet") end while UnitBuff("pet",i) do if UnitBuff("pet",i)=="Interface\\Icons\\Ability_Hunter_MendPet" then x=1 end i=i+1 end if not UnitExists("pet") then c"Call Pet" elseif x==0 then c"Mend Pet" end
 ````
 
 <summary>Growl</summary>
