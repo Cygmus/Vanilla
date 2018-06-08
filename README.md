@@ -154,7 +154,7 @@
 <summary>Growl</summary>
 
 ````js
-/run c=CastSpellByName if nil then c("Growl") end if GetUnitName("target")==nil then TargetNearestEnemy() end c("Growl") PetAttack() PetDefensiveMode() c("Growl")
+/run c=CastSpellByName if nil then c("Growl") end if GetUnitName("target")==nil then TargetNearestEnemy() end c"Growl" PetAttack() PetDefensiveMode()
 ````
 
 <summary>Raptor Strike, Counterattack, Mongoose Bite, Auto Attack</summary>
