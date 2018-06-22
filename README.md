@@ -111,7 +111,7 @@
 <summary>Concussive Shot, Wing Clip</summary>
 
 ````js
-/run c=CastSpellByName if nil then c("Concussive Shot") end RunMacro("as") if CheckInteractDistance("target",3) then c"Wing Clip" c"Wing Clip(Rank 1)" else c"Concussive Shot" end
+/run c=CastSpellByName if nil then c("Concussive Shot") end RunMacro("as") if CheckInteractDistance("target",3) then RunMacro("aa") c"Wing Clip" c"Wing Clip(Rank 1)" else c"Concussive Shot" end
 ````
 
 <summary>Feign Death</summary>
