@@ -136,7 +136,7 @@
 <summary>Feed Pet, Call Pet</summary>
 
 ````js
-/run c,g=CastSpellByName,GetPetHappiness RunMacro("cf") if nil then UseContainerItem(0,1) end if not UnitExists("pet") then c"Call Pet" elseif g()~=nil and g()~=3 and x==0 then c"Feed Pet" PickupContainerItem(0,1) end UseContainerItem(0,0)
+/run c,g=CastSpellByName,GetPetHappiness RunMacro("pcf") if nil then UseContainerItem(0,1) end if not UnitExists("pet") then c"Call Pet" elseif g()~=nil and g()~=3 and x==0 then c"Feed Pet" PickupContainerItem(0,1) end UseContainerItem(0,0)
 ````
 
 <summary>Feed Pet Check</summary>
