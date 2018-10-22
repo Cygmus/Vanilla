@@ -1,44 +1,58 @@
+aa
 
-/run if GetUnitName("target")==nil then TargetNearestEnemy() end for z=1,112 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z) end end end
+/run if GetUnitName("target")==nil then TargetNearestEnemy() end for z=1,172 do if IsAttackAction(z) then if not IsCurrentAction(z) then UseAction(z) end end end
 
-/run if GetUnitName("target")==nil then TargetNearestEnemy() end if CheckInteractDistance("target",3) and not PlayerFrame.inCombat then RunMacro("aa") elseif not IsAutoRepeatAction(1) then CastSpellByName("Auto Shot") end
+as
 
-/run UseContainerItem(0,3) SpellTargetUnit("player")
+/run if GetUnitName("target")==nil then TargetNearestEnemy() end if CheckInteractDistance("target",3) and not PlayerFrame.inCombat then Macro("aa") elseif not IsAutoRepeatAction(1) then CastSpellByName("Auto Shot") end
 
-/run TargetUnit("pet") UseContainerItem(0,3) TargetLastTarget()
+
+
+
+
+Cancel
+
+/run if buffed("Prowl",'player') then CastSpellByName("Prowl") else for i=1,GetNumShapeshiftForms() do _,_,a=GetShapeshiftFormInfo(i) if a~=nil then CastShapeshiftForm(i) break end end end
+
+Faerie Fire
+
+/run i,m,c=1,0,CastSpellByName CastSpellByName("Faerie Fire (Feral)()") Macro("aa") while(UnitBuff("player",i)~=nil) do if(strfind(UnitBuff("player",i),"Form")~=nil) then m=1 end i=i+1 end if m==1 then c("Faerie Fire (Feral)()") else c"Faerie Fire" end
+
+Maul
+
+/run Macro("aa") CastSpellByName("Maul")
 
 Swipe
+
 /run u,c,f=UnitMana('Player'),CastSpellByName,UnitPowerType("Player") if nil then CastSpellByName("Swipe") end Macro("aa") c"Maul" if u>=33 and f==1 then c"Swipe" elseif f==0 then c"Dire Bear Form" end
 
 Bash,Charge
+
 /run c,n,_,_,a=CastSpellByName,CastSpellAtTarget,GetShapeshiftFormInfo(1) if nil then CastSpellByName("Bash") end Macro("aa") if not a then n(9634) end if CheckInteractDistance("target",3) then n(8983) else n(16979) end
 
-Cancel
-/run if buffed("Prowl",'player') then CastSpellByName("Prowl") else for i=1,GetNumShapeshiftForms() do _,_,a=GetShapeshiftFormInfo(i) if a~=nil then CastShapeshiftForm(i) break end end end
-
-Dash
-/run c,_,_,a=CastSpellByName,GetShapeshiftFormInfo(3) if nil then CastSpellByName("Dash") end if not a then CastShapeshiftForm(3) else c"Dash" end
-
-Faerie Fire
-/run i,m,c=1,0,CastSpellByName CastSpellByName("Faerie Fire (Feral)()") Macro("aa") while(UnitBuff("player",i)~=nil) do if(strfind(UnitBuff("player",i),"Form")~=nil) then m=1 end i=i+1 end if m==1 then c("Faerie Fire (Feral)()") else c"Faerie Fire" end
-
 Growl
+
 /run c,n,_,_,a=CastSpellByName,CastSpellAtTarget,GetShapeshiftFormInfo(1) if nil then CastSpellByName("Growl") end Macro("aa") if not a then n(9634) else n(6795) end
 
-Maul
-/run Macro("aa") CastSpellByName("Maul")
+Dash
+
+/run c,_,_,a=CastSpellByName,GetShapeshiftFormInfo(3) if nil then CastSpellByName("Dash") end if not a then CastShapeshiftForm(3) else c"Dash" end
 
 Prowl,Pounce
+
 /run c,n,_,_,a=CastSpellByName,CastSpellAtTarget,GetShapeshiftFormInfo(3) if nil then CastSpellByName("Prowl") end TargetNearestEnemy() if not a then CastShapeshiftForm(3) end if a and buffed("Prowl",'player') then n(9827) else c"Prowl" end
 
 Shred,Ravage
+
 /run c,n,_,_,a=CastSpellByName,CastSpellAtTarget,GetShapeshiftFormInfo(3) if nil then CastSpellByName("Shred") end if not a then CastShapeshiftForm(3) end if a and buffed("Prowl",'player') then n(9867) else Macro("aa") n(9830) end
 
-Rejuvenation
-/run c,r=CastSpellByName,"Rejuvenation" if nil then CastSpellByName("Rejuvenation") end if UnitExists("target") and UnitIsFriend("target","player") then if not buffed(r,'target') then c(r) end return end if not buffed(r,'player') then cast(r,1) end
-
 Travel Form
+
 /run if not buffed("Travel Form",'player') then Macro("Cancel") CastSpellByName("Travel Form(Shapeshift)") elseif not buffed("Aquatic Form",'player') then CastSpellByName("Aquatic Form(Shapeshift)") end
+
+Rejuvenation
+
+/run c,r=CastSpellByName,"Rejuvenation" if nil then CastSpellByName("Rejuvenation") end if UnitExists("target") and UnitIsFriend("target","player") then if not buffed(r,'target') then c(r) end return end if not buffed(r,'player') then cast(r,1) end
 
 # General
 <summary>Auto Attack</summary>
